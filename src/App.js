@@ -6,8 +6,8 @@ function CharacterCard({ image, name, gender, origin }) {
   return (
     <div>
       <img src={image} alt="not found" />
-      <p>Name: {name}</p>
-      <p>Gender: {gender}</p>
+      <p>{name}</p>
+      <p>{gender}</p>
       <p>Origin: {origin.name}</p>
     </div>
   );
@@ -19,13 +19,10 @@ function App() {
     CharactersInfo(setCharacters);
   }, []);
 
-  console.log(characters);
-
-  //
   return characters === undefined ? (
     <div>loading</div>
   ) : (
-    <div>
+    <div className="App">
       {characters.data.map((character) => (
         <CharacterCard {...character} />
       ))}
