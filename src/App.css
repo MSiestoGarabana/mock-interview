@@ -3,5 +3,23 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1px;
+   
+}
+.App__Container{
+    background-color:brown;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+.grid{
+    background-color: aqua;
+}
+.character_Card{
+    max-width: 300px;
 }
 
+.textContainer{
+    padding: 20px;
+    width: 200px;
+    background-color: aquamarine;
+}
