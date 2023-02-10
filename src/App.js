@@ -1,31 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { CharactersInfo } from "./functions";
+import { Card, CircularProgress } from "@mui/material";
+
 import "./App.css";
 
-function CharacterCard({ image, name, gender, origin }) {
-  return (
-    <div>
-      <img src={image} alt="not found" />
-      <p>{name}</p>
-      <p>{gender}</p>
-      <p>Origin: {origin.name}</p>
-    </div>
-  );
-}
 function App() {
   const [characters, setCharacters] = useState();
 
   useEffect(() => {
-    CharactersInfo(setCharacters);
+    const timer = setTimeout(() => {
+      CharactersInfo(setCharacters);
+    }, 2000);
+    return () => clearTimeout(timer);
   }, []);
 
-  return characters === undefined ? (
-    <div>loading</div>
-  ) : (
+  return characters ? (
     <div className="App">
       {characters.data.map((character) => (
-        <CharacterCard {...character} />
+        <Card {...character}>
+          <img src={character.image} alt="not found" />
+          <p>{character.name}</p>
+          <p>{character.gender}</p>
+          <p>Origin: {character.origin.name}</p>
+        </Card>
       ))}
+    </div>
+  ) : (
+    <div className="App">
+      <CircularProgress />
     </div>
   );
 }
