@@ -6,20 +6,21 @@
    
 }
 .App__Container{
-    background-color:brown;
+    
     margin-top: 50px;
     margin-bottom: 50px;
 
 }
-.grid{
-    background-color: aqua;
-}
+
 .character_Card{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10%;
     max-width: 300px;
 }
 
 .textContainer{
+    align-items: center;
     padding: 20px;
     width: 200px;
-    background-color: aquamarine;
 }
