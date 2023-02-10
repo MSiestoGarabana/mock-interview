@@ -25,7 +25,7 @@ function App() {
       <Grid className="grid" container columnGap={10} rowGap={5}>
         {characters.data.map((character) => (
           <Card
-            className="character_Card"
+            className="Card__Character"
             key={character.id}
             {...character}
             raised={true}
@@ -45,9 +45,13 @@ function App() {
       </Grid>
     </Container>
   ) : (
-    <div className="App">
-      <CircularProgress />
-    </div>
+    <Container className="App__Container">
+      <Grid className="grid" container>
+        <Card className="Card__loading" raised={true}>
+          <CircularProgress />
+        </Card>
+      </Grid>
+    </Container>
   );
 }
 export default App;
