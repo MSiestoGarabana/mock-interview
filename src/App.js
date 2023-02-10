@@ -1,23 +1,14 @@
+import React, { useEffect, useState } from "react";
+import { CharactersInfo } from "./functions";
 import "./App.css";
-import {
-  useQuery,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
-
-const queryClient = new QueryClient();
 
 function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Cats />
-    </QueryClientProvider>
-  );
-}
+  const [characters, setCharacters] = useState(null);
+  console.log(characters);
+  useEffect(() => {
+    CharactersInfo(setCharacters);
+  }, []);
 
-function Cats() {
-  return <div className="App">Cats</div>;
+  return <div>{characters.data[0].name}</div>;
 }
-
 export default App;
