@@ -21,37 +21,33 @@ function App() {
   }, []);
 
   return characters ? (
-    <Container className="App__Container">
-      <Grid className="grid" container columnGap={10} rowGap={5}>
-        {characters.data.map((character) => (
-          <Card
-            className="Card__Character"
-            key={character.id}
-            {...character}
-            raised={true}
-          >
-            <img src={character.image} alt="not found" />
-            <Container className="textContainer" maxWidth="md">
-              <Typography variant="h5">{character.name}</Typography>
-              <br></br>
-              <Typography variant="overline">{character.gender}</Typography>
-              <br></br>
-              <Typography variant="subtitle1">
-                Origin: {character.origin.name}
-              </Typography>
-            </Container>
-          </Card>
-        ))}
-      </Grid>
-    </Container>
-  ) : (
-    <Container className="App__Container">
-      <Grid className="grid" container>
-        <Card className="Card__loading" raised={true}>
-          <CircularProgress />
+    <div className="App__Container">
+      {characters.data.map((character) => (
+        <Card
+          className="Card__Character"
+          key={character.id}
+          {...character}
+          raised={true}
+        >
+          <img src={character.image} alt="not found" />
+          <Container className="textContainer" maxWidth="md">
+            <Typography variant="h5">{character.name}</Typography>
+            <br></br>
+            <Typography variant="overline">{character.gender}</Typography>
+            <br></br>
+            <Typography variant="subtitle1">
+              Origin: {character.origin.name}
+            </Typography>
+          </Container>
         </Card>
-      </Grid>
-    </Container>
+      ))}
+    </div>
+  ) : (
+    <div className="App__Container">
+      <Card className="Card__loading" raised={true}>
+        <CircularProgress />
+      </Card>
+    </div>
   );
 }
 export default App;
