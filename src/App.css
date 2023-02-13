@@ -1,22 +1,25 @@
-
-.App{
+.App__Container{
+    width: 60%;
+    margin: 70px;
+    margin-top: 60px;
+    
+    
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1px;
-   
-}
-.App__Container{
+    grid-column-gap:150px;
+    grid-row-gap:45px;
     
-    margin-top: 50px;
-    margin-bottom: 50px;
-
+    
 }
 
 .Card__Character{
+    width: 300px;
+    max-height: 400px;
+
     border-style: solid;
     border-width: 1px;
     border-radius: 10%;
-    max-width: 300px;
+
 }
 .Card__loading{
     border-style: solid;
